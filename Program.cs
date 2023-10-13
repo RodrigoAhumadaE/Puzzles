@@ -101,3 +101,23 @@ nombres = Nombres();
 foreach(string nom in nombres){
   Console.WriteLine(nom);
 }
+
+// Opcional
+/* Baraja la lista e imprime los valores en el nuevo orden.  */
+Console.WriteLine("---------------");
+static void ListaBarajada(List<string> nombres){
+  Random rand = new Random();
+  int i = nombres.Count;
+  while(i > 1){
+    i--;
+    int j = rand.Next(i+1);
+    string aux = nombres[j];
+    nombres[j] = nombres[i];
+    nombres[i] = aux;
+  }
+  foreach(string nombre in nombres){
+    Console.WriteLine(nombre);
+  }
+}
+
+ListaBarajada(nombres);
